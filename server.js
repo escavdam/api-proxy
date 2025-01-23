@@ -3,14 +3,13 @@ const nunjucks = require("nunjucks")
 const PORT = 8000
 const path = require('path');
 const bodyParser = require('body-parser');
-const PORT = 8000;
 const app = express();
 const weatherController = require('./controllers/weatherController');
 const covidController = require('./controllers/covidController'); 
 const coinsController = require('./controllers/coinsController');
 const moviesController = require('./controllers/moviesController');
 const translateController = require('./controllers/translateTextController');
-const moviesController = require('./controllers/moviesController');
+
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Aquí le indicamos a Express que los archivos estáticos están en la carpeta 'public'
@@ -26,6 +25,11 @@ app.use(express.static('public'));
 app.get('/', (req, res) => {
     res.render('index.html');
 });
+
+app.get('/translate', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));  
+});
+
 
 app.use(weatherController);
 app.use(covidController);
