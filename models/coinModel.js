@@ -5,38 +5,38 @@ dotenv.config();
 
 const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
 
-function getWeather(city) {
+function getCoins() {
     return new Promise((resolve, reject) => {
         const options = {
             method: 'GET',
-            hostname: 'open-weather13.p.rapidapi.com',
+            hostname: 'coinranking1.p.rapidapi.com',
             port: null,
-            path: `/city/${city}/EN`,
+            path: '/stats?referenceCurrencyUuid=yhjMzLPhuIDl',
             headers: {
-                'x-rapidapi-key': RAPIDAPI_KEY,
+                'x-rapidapi-key': '64918dbd1amshcc3f1799b2db5d2p11fc30jsn85a0e0ed4bfe',
                 'x-rapidapi-host': 'coinranking1.p.rapidapi.com'
             }
         };
-
+        
         const req = http.request(options, function (res) {
             const chunks = [];
-
+        
             res.on('data', function (chunk) {
                 chunks.push(chunk);
             });
-
+        
             res.on('end', function () {
                 const body = Buffer.concat(chunks);
-                resolve(body.toString());
+                try {
+                    resolve(JSON.parse(body.toString()));
+                } catch (error) {
+                    reject(error);
+                }
             });
         });
-
-        req.on('error', function (e) {
-            reject(e);
-        });
-
+        
         req.end();
     });
 }
 
-module.exports = getWeather;
+module.exports = getCoins;
