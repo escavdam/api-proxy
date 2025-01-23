@@ -25,6 +25,10 @@ app.get('/', (req, res) => {
     res.render('index.html');
 });
 
+app.get('/translate', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));  
+});
+
 app.use(weatherController);
 app.use(covidController);
 app.use(coinsController);
