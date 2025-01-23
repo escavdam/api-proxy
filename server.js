@@ -10,7 +10,6 @@ const coinsController = require('./controllers/coinsController');
 const moviesController = require('./controllers/moviesController');
 const translateController = require('./controllers/translateTextController');
 
-
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Aquí le indicamos a Express que los archivos estáticos están en la carpeta 'public'
 
@@ -29,7 +28,6 @@ app.get('/', (req, res) => {
 app.get('/translate', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));  
 });
-
 
 app.use(weatherController);
 app.use(covidController);

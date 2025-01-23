@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<p>Hola! Esto esta inyectado desde otra plantilla</p>
+<div id="contenido">
+  <table>
+    <tr>
+      <th>Longitud</th>
+      <td>{{ weather.coord.lon }}</td>
+    </tr>
+    <tr>
+      <th>Latitud</th>
+      <td>{{ weather.coord.lat }}</td>
+    </tr>
+    <tr>
+      <th>Nombre</th>
+      <td>{{ weather.name }}</td>
+    </tr>
+    <tr>
+      <th>Descripcion</th>
+      <td>{{ weather.weather[0].description }}</td>
+    </tr>
+    <tr>
+      <th>Temperatura</th>
+      <td>{{ ((weather.main.temp - 32) * 5/9).toFixed(1) }}ºC</td>
+    </tr>
+    <tr>
+      <th>Presión</th>
+      <td>{{ weather.main.pressure }}</td>
+    </tr>
+    <tr>
+      <th>Humedad</th>
+      <td>{{ weather.main.humidity }}</td>
+    </tr>
+  </table>
+</div>
+{% endblock %}
