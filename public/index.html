@@ -23,16 +23,16 @@
 
     <script>
         document.getElementById('translateForm').addEventListener('submit', function (e) {
-            e.preventDefault();  // Evitamos que el formulario se envíe de forma predeterminada
+            e.preventDefault();  
 
             const text = document.getElementById('text').value;
             const sourceLang = document.getElementById('sourceLang').value;
             const targetLang = document.getElementById('targetLang').value;
 
-            fetch('http://localhost:8000/api/translate', {  // Llamamos a la ruta correcta de tu servidor
+            fetch('http://localhost:8000/api/translate', {  
                 method: 'POST',
                 headers: {
-                    'Content-Type': 'application/json'  // Aseguramos que se enviará JSON
+                    'Content-Type': 'application/json'  
                 },
                 body: JSON.stringify({
                     text: text,
@@ -40,13 +40,13 @@
                     targetLang: targetLang
                 })
             })
-            .then(response => response.json())  // Esperamos la respuesta en formato JSON
+            .then(response => response.json())  
             .then(data => {
-                // Mostramos la traducción en el HTML
+                
                 document.getElementById('result').innerText = 'Traducción: ' + JSON.stringify(data);
             })
             .catch(error => {
-                // Mostramos el error si hay alguno
+                
                 document.getElementById('result').innerText = 'Error: ' + error.message;
             });
         });
