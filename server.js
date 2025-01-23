@@ -1,5 +1,6 @@
-const express = require('express');
-const fetch = require('node-fetch'); // Import fetch (from node-fetch)
+import express from 'express'; // Use ES Module import
+import fetch from 'node-fetch'; // Use ES Module import
+
 const app = express();
 const port = 8000;
 
@@ -35,6 +36,21 @@ app.get('/video-stats/:videoId', async (req, res) => {
   } else {
     res.status(500).json({ message: 'Failed to fetch data.' });
   }
+});
+
+// Serve a simple HTML form to input video ID
+app.get('/', (req, res) => {
+  res.send(`
+    <html>
+      <body>
+        <h1>YouTube Video Data</h1>
+        <form action="/video-stats" method="get">
+          <input type="text" name="videoId" placeholder="Enter Video ID" />
+          <button type="submit">Get Video Stats</button>
+        </form>
+      </body>
+    </html>
+  `);
 });
 
 // Start the server
