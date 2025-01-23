@@ -1,0 +1,14 @@
+
+<!-- views/login.njk -->
+{% extends "base.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<p>Hola! Esto esta inyectado desde otra plantilla</p>
+<div id="contenido">
+  <p>Lon: {{ weather.coord.lon }}</p>
+  <p>Lat: {{ weather.coord.lat }}</p>
+  <p>Name: {{ weather.name }}</p>
+</div>
+{% endblock %}

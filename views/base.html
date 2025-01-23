@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  {% block header %}
+    <header>
+        <h1>API Proxy</h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="/login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+  {% endblock %}
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+  <footer>
+    <p>© 2024 Los sims</p>
+  </footer>
+</body>
+</html>
