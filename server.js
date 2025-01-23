@@ -1,10 +1,10 @@
-const express = require("express")
-const PORT = 8000
+const express = require('express');
 const app = express();
-const weatherController = require('./controllers/weatherController');
+const instagramController = require('./controllers/instagramController'); // Ruta del controlador
 
-app.use(weatherController);
+app.use(instagramController); // Usar el controlador para la ruta /instagram-location
 
+const PORT = process.env.PORT || 8000;
 app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
+    console.log(`Server is running on port ${PORT}`);
+});
