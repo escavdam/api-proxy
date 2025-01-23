@@ -11,7 +11,7 @@ function getWeather(city) {
             method: 'GET',
             hostname: 'open-weather13.p.rapidapi.com',
             port: null,
-            path: `/city/${city}/EN`,
+            path: `/city/${city}/ES`,
             headers: {
                 'x-rapidapi-key': RAPIDAPI_KEY,
                 'x-rapidapi-host': 'open-weather13.p.rapidapi.com'

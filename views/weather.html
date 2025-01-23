@@ -10,5 +10,10 @@
   <p>Lon: {{ weather.coord.lon }}</p>
   <p>Lat: {{ weather.coord.lat }}</p>
   <p>Name: {{ weather.name }}</p>
+  <p>Descripcion: {{weather.weather[0].description}}</p>
+  <!-- <p>Temperatura: {{weather.main.temp}}ºF</p> -->
+  <p>Temperatura: {{ ((weather.main.temp - 32) * 5/9).toFixed(1) }}ºC</p>
+  <p>Presión: {{weather.main.pressure}}</p>
+  <p>Humedad: {{weather.main.humidity}}</p>
 </div>
 {% endblock %}
