@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Traductor</title>
+</head>
+<body>
+    <h1>Traductor</h1>
+
+    <form action="/translate" method="get">
+        <label for="text">Texto:</label>
+        <input type="text" id="text" name="text" required><br>
+
+        <label for="sourceLang">Idioma de origen:</label>
+        <input type="text" id="sourceLang" name="sourceLang" value="en" required><br>
+
+        <label for="targetLang">Idioma de destino:</label>
+        <input type="text" id="targetLang" name="targetLang" value="es" required><br>
+
+        <button type="submit">Traducir</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">Error: {{ error }}</p>
+    {% endif %}
+
+    {% if translation %}
+        <h2>Resultado de la Traducción</h2>
+        <p><strong>Texto original:</strong> {{ translation.original }}</p>
+        <p><strong>Texto traducido:</strong> {{ translation.translated }}</p>
+        <p><strong>Idioma de origen:</strong> {{ translation.sourceLang }}</p>
+        <p><strong>Idioma de destino:</strong> {{ translation.targetLang }}</p>
+    {% endif %}
+</body>
+</html>
