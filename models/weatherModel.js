@@ -39,4 +39,6 @@ function getWeather(city) {
     });
 }
 
+
+
 module.exports = getWeather;
