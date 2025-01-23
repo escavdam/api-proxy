@@ -1,3 +1,4 @@
+// translateModel.js (ya está bien nombrado, ya que se encarga de la lógica del modelo de traducción)
 const http = require('https');
 const qs = require('querystring');
 const dotenv = require('dotenv');

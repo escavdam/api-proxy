@@ -8,7 +8,7 @@ const weatherController = require('./controllers/weatherController');
 const covidController = require('./controllers/covidController'); 
 const coinsController = require('./controllers/coinsController');
 const moviesController = require('./controllers/moviesController');
-const translateController = require('./controllers/translateTextController');
+const translateController = require('./controllers/translateController');
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Aquí le indicamos a Express que los archivos estáticos están en la carpeta 'public'

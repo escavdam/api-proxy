@@ -1,4 +1,5 @@
-const translateText = require('../models/translateModel');  // Importamos la función que realiza la traducción
+// translateController.js
+const translateText = require('../models/translateModel');  // Importamos el modelo de traducción
 
 const router = require('express').Router();
 
@@ -7,7 +8,6 @@ router.post('/api/translate', (req, res) => {
 
     const { text, sourceLang, targetLang } = req.body;
 
-    
     if (!text || !sourceLang || !targetLang) {
         return res.status(400).json({ error: 'Faltan parámetros en la solicitud' });
     }
@@ -20,6 +20,5 @@ router.post('/api/translate', (req, res) => {
             res.status(500).json({ error: error.message });  
         });
 });
-
 
 module.exports = router;
