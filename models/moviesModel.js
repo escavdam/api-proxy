@@ -5,40 +5,39 @@ dotenv.config();
 
 const RAPIDAPI_KEY = process.env.RAPIDAPI_KEY;
 
-function getWeather(city) {
+function getMovies() {
     return new Promise((resolve, reject) => {
         const options = {
             method: 'GET',
-            hostname: 'open-weather13.p.rapidapi.com',
+            hostname: 'imdb-top-100-movies.p.rapidapi.com',
             port: null,
-            path: `/city/${city}/EN`,
+            path: '/',
             headers: {
                 'x-rapidapi-key': RAPIDAPI_KEY,
-                'x-rapidapi-host': 'open-weather13.p.rapidapi.com'
+                'x-rapidapi-host': 'imdb-top-100-movies.p.rapidapi.com'
             }
         };
-
+        
         const req = http.request(options, function (res) {
             const chunks = [];
-
+        
             res.on('data', function (chunk) {
                 chunks.push(chunk);
             });
-
+        
             res.on('end', function () {
                 const body = Buffer.concat(chunks);
-                resolve(body.toString());
+                try {
+                    const jsonResponse = JSON.parse(body.toString());
+                    resolve(jsonResponse);
+                } catch (error) {
+                    reject(error);
+                }
             });
         });
-
-        req.on('error', function (e) {
-            reject(e);
-        });
-
+        
         req.end();
     });
 }
 
-
-
-module.exports = getWeather;
+module.exports = getMovies;
