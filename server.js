@@ -7,6 +7,7 @@ const covidController = require('./controllers/covidController');
 
 
 
+app.use(weatherController);
 app.use(covidController);
 
 app.listen(PORT, () => {
