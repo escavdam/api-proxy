@@ -15,7 +15,7 @@ router.get('/api/coins', (req, res) => {
 router.get('/coins', (req, res) => {
     getCoins()
         .then((response) => {
-            res.render('coins.html', { coins: response });
+            res.render('coins.njk', { coins: response });
         })
         .catch((error) => {
             res.status(500).send(error);

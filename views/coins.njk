@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Criptomonedas</title>
+</head>
+<body>
+    <h1>Listado de Criptomonedas</h1>
+    
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Precio</th>
+                <th>Market Cap</th>
+                <th>Ranking</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for coin in coins %}
+            <tr>
+                <td>{{ coin.name }}</td>
+                <td>{{ coin.price | numberFormat(2, '.', ',') }} USD</td>
+                <td>{{ coin.marketCap | numberFormat(0, '.', ',') }}</td>
+                <td>{{ coin.rank }}</td>
+            </tr>
+            {% else %}
+            <tr>
+                <td colspan="4">No se encontraron criptomonedas.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
